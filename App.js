@@ -1,12 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { FAQNavigator, HomeScreenNavigator, SettingsNavigator } from './components/StackNavigator/StackNavigator';
+import { CopilotProvider, CopilotStep, walkthroughable } from 'react-native-copilot';
+
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CopilotProvider overlay='svg' animated={true}>
+      <NavigationContainer>
+        <Tab.Navigator initialRouteName='HomeTab'>
+          <Tab.Screen name="HomeTab" options={{
+            tabBarLabel: 'Home', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+            component={HomeScreenNavigator} />
+          <Tab.Screen name="FAQTab" options={{
+            tabBarLabel: 'FAQ', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={26} />
+            ),
+          }}
+            component={FAQNavigator} />
+          <Tab.Screen name="SettingsTab" options={{
+            tabBarLabel: 'Privacy Settings', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="eye-settings" color={color} size={26} />
+            ),
+          }}
+            component={SettingsNavigator} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </CopilotProvider>
   );
 }
 
