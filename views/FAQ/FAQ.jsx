@@ -20,7 +20,7 @@ const FAQ = () => {
                     <List.Accordion title="Contacts Information" id="1.4" style={{ width: "80%", backgroundColor: "#eee" }}>
                         <List.Item descriptionNumberOfLines={10} description="If you choose to share your contacts with THE APP, THE APP will store and access your contacts' information securely to identify connections and help you connect with them." />
                     </List.Accordion>
-                    <List.Accordion title="Health Information" id="1.4" style={{ width: "80%", backgroundColor: "#eee" }}>
+                    <List.Accordion title="Health Information" id="1.5" style={{ width: "80%", backgroundColor: "#eee" }}>
                         <List.Item descriptionNumberOfLines={10} description="We collect information such as your weight, height, heart rate and other indicators." />
                     </List.Accordion>
                 </List.AccordionGroup>

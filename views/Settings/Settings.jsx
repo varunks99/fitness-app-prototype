@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Switch, Text, HelperText, Button, Dialog, Portal, Provider, Surface } from 'react-native-paper';
 import { ScrollView, View, SafeAreaView } from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
+// import { CopilotStep, walkthroughable } from 'react-native-copilot';
 
 
 const SettingSwitch = ({ text }) => {
@@ -15,6 +16,8 @@ const SettingSwitch = ({ text }) => {
         </View>
     );
 }
+
+// const CopilotSwitch = walkthroughable(SettingSwitch);
 
 const Settings = () => {
     const [dialog1, setDialog1] = React.useState(false);
