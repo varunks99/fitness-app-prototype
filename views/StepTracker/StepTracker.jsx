@@ -63,6 +63,7 @@ const StepTracker = () => {
                         <Text variant="headlineMedium" style={{ fontWeight: 600, color: "#8454ac" }}>Distance: 4.4km  </Text>
                         <IconButton
                             icon="map-marker-alert"
+
                             size={22}
                             iconColor="#eee"
                             containerColor="#6c7ccc"
