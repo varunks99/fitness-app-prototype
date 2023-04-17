@@ -1,11 +1,19 @@
 import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
-import { Dimensions, Text as RNText, View, StyleSheet } from "react-native";
-import { ProgressChart } from "react-native-chart-kit";
+import { Dimensions, View, StyleSheet } from "react-native";
+import { ProgressChart, BarChart } from "react-native-chart-kit";
 // import { CopilotStep, useCopilot, walkthroughable } from "react-native-copilot";
 import { FAB, Text, Dialog, Modal, Portal, IconButton, Provider, Button } from "react-native-paper";
-const data = [0.4, 0.6]
 
+const progressData = [0.4, 0.6]
+const barData = {
+    labels: ["Jan", "Feb", "March", "April"],
+    datasets: [
+        {
+            data: [20, 45, 28, 80]
+        }
+    ]
+};
 // const CopilotText = walkthroughable(RNText);
 
 const styles = StyleSheet.create({
@@ -30,10 +38,9 @@ const StepTracker = () => {
     const containerStyle = { backgroundColor: 'white', padding: 20, margin: 20, borderRadius: 10 };
 
     const chartConfig = {
-        backgroundColor: '#e26a00',
-        backgroundGradientFrom: '#fb8c00',
-        backgroundGradientTo: '#ffa726',
-        decimalPlaces: 2, // optional, defaults to 2dp
+        backgroundGradientFrom: '#8454ac',
+        backgroundGradientTo: '#6c7ccc',
+        decimalPlaces: 2,
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     }
 
@@ -41,23 +48,41 @@ const StepTracker = () => {
         <Provider>
             <View style={{ alignItems: "center", flex: 1 }}>
                 <ProgressChart
-                    data={data}
+                    data={progressData}
                     width={Dimensions.get("window").width}
                     height={250}
                     radius={64}
                     hideLegend={true}
                     chartConfig={chartConfig}
                 />
-                <Text>Move: 362/330cal</Text>
-                <Text variant="headlineMedium">Steps: 4,032</Text>
-                <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                    <Text variant="headlineMedium">Distance: 4.4km  </Text>
-                    <IconButton
-                        icon="map-marker-alert"
-                        size={22}
-                        containerColor="#ddd"
-                        onPress={showModal}
-                    />
+
+                <View style={{ backgroundColor: "#fff", padding: 20, borderRadius: 10, marginTop: 30 }}>
+                    <Text variant="headlineMedium" style={{ fontWeight: 600, color: "#8454ac" }}>Move: 362/330cal</Text>
+                    <Text variant="headlineMedium" style={{ fontWeight: 600, color: "#8454ac" }}>Steps: 4,032</Text>
+                    <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                        <Text variant="headlineMedium" style={{ fontWeight: 600, color: "#8454ac" }}>Distance: 4.4km  </Text>
+                        <IconButton
+                            icon="map-marker-alert"
+                            size={22}
+                            iconColor="#eee"
+                            containerColor="#6c7ccc"
+                            onPress={showModal}
+                        />
+                    </View>
+                </View>
+
+                <View>
+                    {/* <BarChart
+                        style={{ borderRadius: 16 }}
+                        data={barData}
+                        width={Dimensions.get("window").width - 20}
+                        height={220}
+                        chartConfig={chartConfig}
+                        verticalLabelRotation={30}
+                        showValuesOnTopOfBars={true}
+                        withHorizontalLabels={false}
+                    /> */}
+
                 </View>
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>

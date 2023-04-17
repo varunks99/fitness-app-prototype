@@ -1,43 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { FAQNavigator, HomeScreenNavigator, SettingsNavigator } from './components/StackNavigator/StackNavigator';
-// import { CopilotProvider, CopilotStep, walkthroughable } from 'react-native-copilot';
+import { FAQNavigator, HomeScreenNavigator, SettingsNavigator, SharingNavigator } from './components/StackNavigator/StackNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
-// const CopilotIcon = walkthroughable(MaterialCommunityIcons);
 
 export default function App() {
   return (
-    // <CopilotProvider overlay='svg' animated={true}>
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName='HomeTab'>
-        <Tab.Screen name="HomeTab" options={{
-          tabBarLabel: 'Home', tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
-          ),
-        }}
-          component={HomeScreenNavigator} />
-        <Tab.Screen name="FAQTab" options={{
-          tabBarLabel: 'FAQ', tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={26} />
-          ),
-        }}
-          component={FAQNavigator} />
-        <Tab.Screen name="SettingsTab" options={{
-          tabBarLabel: 'Privacy Settings', tabBarIcon: ({ color }) => (
-            // <CopilotStep text="This is the settings tab" order={1} name="settings">
-            <MaterialCommunityIcons name="eye-settings" color={color} size={26} />
-            // </CopilotStep>
+    <PaperProvider>
+      <NavigationContainer>
+        <Tab.Navigator initialRouteName='HomeTab' activeColor='#8454ac'>
+          <Tab.Screen name="HomeTab" options={{
+            tabBarLabel: 'Home', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+            component={HomeScreenNavigator} />
+          <Tab.Screen name="FAQTab" options={{
+            tabBarLabel: 'FAQ', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={26} />
+            ),
+          }}
+            component={FAQNavigator} />
+          <Tab.Screen name="SharingTab" options={{
+            tabBarLabel: 'Sharing', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account-group" color={color} size={26} />
+            ),
+          }}
+            component={SharingNavigator} />
+          <Tab.Screen name="SettingsTab" options={{
+            tabBarLabel: 'Privacy Settings', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="eye-settings" color={color} size={26} />
+            ),
+          }}
+            component={SettingsNavigator} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
 
-          ),
-        }}
-          component={SettingsNavigator} />
-      </Tab.Navigator>
-    </NavigationContainer>
-    // </CopilotProvider>
   );
 }
 

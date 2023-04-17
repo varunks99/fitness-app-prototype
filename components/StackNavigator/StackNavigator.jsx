@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import StepTracker from "../../views/StepTracker/StepTracker";
 import FAQ from "../../views/FAQ/FAQ";
 import Settings from "../../views/Settings/Settings";
+import Sharing from "../../views/Sharing/Sharing";
 
 const Stack = createStackNavigator();
 
@@ -44,3 +45,17 @@ const SettingsNavigator = () => {
 }
 
 export { SettingsNavigator };
+
+
+const SharingNavigator = () => {
+    return (
+        <Stack.Navigator >
+            <Stack.Screen
+                name="Sharing"
+                component={Sharing}
+            />
+        </Stack.Navigator>
+    );
+}
+
+export { SharingNavigator };
