@@ -4,6 +4,7 @@ import { Dimensions, View, StyleSheet } from "react-native";
 import { ProgressChart, BarChart } from "react-native-chart-kit";
 // import { CopilotStep, useCopilot, walkthroughable } from "react-native-copilot";
 import { FAB, Text, Dialog, Modal, Portal, IconButton, Provider, Button } from "react-native-paper";
+import OpenURLButton from "../../components/OpenURLButton/OpenURLButton";
 
 const progressData = [0.4, 0.6]
 const barData = {
@@ -63,7 +64,6 @@ const StepTracker = () => {
                         <Text variant="headlineMedium" style={{ fontWeight: 600, color: "#8454ac" }}>Distance: 4.4km  </Text>
                         <IconButton
                             icon="map-marker-alert"
-
                             size={22}
                             iconColor="#eee"
                             containerColor="#6c7ccc"
@@ -72,22 +72,20 @@ const StepTracker = () => {
                     </View>
                 </View>
 
-                <View>
-                    {/* <BarChart
-                        style={{ borderRadius: 16 }}
-                        data={barData}
-                        width={Dimensions.get("window").width - 20}
-                        height={220}
-                        chartConfig={chartConfig}
-                        verticalLabelRotation={30}
-                        showValuesOnTopOfBars={true}
-                        withHorizontalLabels={false}
-                    /> */}
+                <IconButton style={{ marginTop: 30 }} icon="play" size={30} iconColor="#fff" containerColor="#8454ac" />
+                <Text variant="titleMedium" style={{ color: "#8454ac" }}>Start Activity</Text>
 
-                </View>
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-                        <Text>Your location was used to infer this metric.</Text>
+                        <Text variant="titleMedium">This app tracks your location to infer this metric.</Text>
+                        <Text variant="titleMedium" style={{ fontStyle: "italic", marginTop: 10 }}>Why are the risks of sharing your location?</Text>
+                        <Text>Location data can reveal sensitive information about your daily habits and behaviors, such as where you live, work and travel. This may be used for targeted advertising, cyberstalking, or to steal your identity</Text>
+                        <Text>Additionally, data breaches or hacks can expose your location data to unauthorized third parties, who can use your location data for their own economic ends.</Text>
+                        <OpenURLButton url={"https://www.securitymagazine.com/articles/96557-the-unforeseen-risks-of-sharing-smartphone-location-data"}>More info</OpenURLButton>
+
+                        <Text variant="titleMedium" style={{ fontStyle: "italic", marginTop: 10 }}>What can I do?</Text>
+                        <Text>An app can estimate the approximate distance you covered based on your steps. If you are okay with reduced accuracy, disable location access. If not, make sure to allow location access only when you start an activity.</Text>
+
                     </Modal>
                 </Portal>
                 <Portal>
@@ -109,6 +107,9 @@ const StepTracker = () => {
                             <Text variant="titleMedium">Data sharing</Text>
                             <Text>To ensure your privacy, disable data sharing with third parties.</Text>
                             <Text>However, if you want to access a service which requires third-party support, like in-app music, enable only the "Profile data" option for sharing</Text>
+
+                            <Text variant="titleSmall" style={{ marginTop: 10, color: "red" }}>What could happen?</Text>
+                            <Text>A fitness app shares your data with a third party, who sells it to an insurance company. The insurance company uses your fitness data to deny you coverage or charge you higher premiums, even if you are healthy. Your private health data is misused and affects your finances.</Text>
                         </Dialog.Content>
                         <Dialog.Actions>
                             <Button mode="contained" onPress={() => { setModal2(false); setModal3(true); }}>Next</Button>
@@ -122,6 +123,9 @@ const StepTracker = () => {
                             <Text variant="titleMedium">Location preferences</Text>
                             <Text>It is best to not allow the app to track your location.</Text>
                             <Text>The app can still calculate your step count without accessing location. However, if you want more accurate results, enable only the option "To calculate your distance, speed and elevation during an activity"</Text>
+
+                            <Text variant="titleSmall" style={{ marginTop: 10, color: "red" }}>What could happen?</Text>
+                            <Text>A person uses a fitness tracking app to monitor their daily runs and unknowingly shares their location data with the app. The app is hacked, and the hacker gains access to the person's location history. They use this information to determine when the person is away from home and burglarize their house.</Text>
                         </Dialog.Content>
                         <Dialog.Actions>
                             <Button mode="contained" onPress={() => { setModal3(false); setModal4(true); }}>Next</Button>
@@ -134,6 +138,9 @@ const StepTracker = () => {
                         <Dialog.Content>
                             <Text variant="titleMedium">Ad preferences</Text>
                             <Text>Disable this setting to prevent the app from tracking your preferences.</Text>
+
+                            <Text variant="titleSmall" style={{ marginTop: 10, color: "red" }}>What could happen?</Text>
+                            <Text>A fitness app shares your health data with third parties for advertising. You get ads from a pharmaceutical company for a condition you didn't disclose. Your sensitive health data was shared without your consent, and now others know your condition, causing embarrassment and a breach of privacy.</Text>
                         </Dialog.Content>
                         <Dialog.Actions>
                             <Button mode="contained" onPress={() => { setModal4(false); setModal5(true); }}>Next</Button>
