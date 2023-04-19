@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         margin: 16,
         right: 0,
-        bottom: 0,
+        bottom: 5,
+        padding: 4
     },
 })
 
@@ -167,6 +168,7 @@ const StepTracker = () => {
                 style={styles.fab}
                 onPress={() => setModal1(true)}
             />
+            <Text style={{ position: "absolute", right: 0, bottom: 2, marginRight: 22, color: "#8454ac" }}>Tutorial</Text>
         </Provider>
     )
 }

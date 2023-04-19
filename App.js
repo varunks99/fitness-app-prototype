@@ -18,18 +18,18 @@ export default function App() {
             ),
           }}
             component={HomeScreenNavigator} />
-          <Tab.Screen name="FAQTab" options={{
-            tabBarLabel: 'FAQ', tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={26} />
-            ),
-          }}
-            component={FAQNavigator} />
           <Tab.Screen name="SharingTab" options={{
             tabBarLabel: 'Sharing', tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="account-group" color={color} size={26} />
             ),
           }}
             component={SharingNavigator} />
+          <Tab.Screen name="FAQTab" options={{
+            tabBarLabel: 'FAQ', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={26} />
+            ),
+          }}
+            component={FAQNavigator} />
           <Tab.Screen name="SettingsTab" options={{
             tabBarLabel: 'Privacy Settings', tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="eye-settings" color={color} size={26} />

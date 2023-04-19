@@ -87,7 +87,10 @@ const Settings = () => {
 
                 <View style={{ backgroundColor: "#fff", padding: 15, borderRadius: 10, marginTop: 10 }}>
                     <Text variant="titleLarge" style={{ color: "#8454ac", fontWeight: 500 }}>Ad preferences</Text>
-                    <CustomSwitch text={"Show me personalized ads"} />
+                    <CustomSwitch text={"Show me personalized ads"} children={<>
+                        <Text style={{ fontStyle: "italic", color: "red", marginTop: 10 }}>What are the privacy risks?</Text>
+                        <Text>The app will create a detailed profile of your behavior and interests to personalize your ads. This could be misused to make decisions about you, like denying you an insurance or job based on your online activity</Text>
+                    </>} />
                     <HelperText type="info">We use your personal information and activity to customize the ads you see</HelperText>
                 </View>
 
