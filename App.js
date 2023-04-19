@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { FAQNavigator, HomeScreenNavigator, SettingsNavigator, SharingNavigator } from './components/StackNavigator/StackNavigator';
+import { AccountNavigator, FAQNavigator, HomeScreenNavigator, SettingsNavigator, SharingNavigator } from './components/StackNavigator/StackNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -36,6 +36,12 @@ export default function App() {
             ),
           }}
             component={SettingsNavigator} />
+          <Tab.Screen name="AccountsTab" options={{
+            tabBarLabel: 'Account', tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+            component={AccountNavigator} />
         </Tab.Navigator>
       </NavigationContainer>
     </PaperProvider>
