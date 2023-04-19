@@ -3,6 +3,7 @@ import StepTracker from "../../views/StepTracker/StepTracker";
 import FAQ from "../../views/FAQ/FAQ";
 import Settings from "../../views/Settings/Settings";
 import Sharing from "../../views/Sharing/Sharing";
+import Account from "../../views/Account/Account";
 
 const Stack = createStackNavigator();
 
@@ -59,3 +60,16 @@ const SharingNavigator = () => {
 }
 
 export { SharingNavigator };
+
+const AccountNavigator = () => {
+    return (
+        <Stack.Navigator >
+            <Stack.Screen
+                name="Account"
+                component={Account}
+            />
+        </Stack.Navigator>
+    );
+}
+
+export { AccountNavigator };
