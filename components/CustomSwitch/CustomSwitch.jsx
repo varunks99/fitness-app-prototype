@@ -19,12 +19,12 @@ const CustomSwitch = ({ text, children }) => {
         <View style={{ flexDirection: "row", alignItems: "center", marginVertical: 5 }}>
             <Text style={{ width: "75%" }}>{text}</Text>
             <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
-            <Portal>
+            {children && <Portal>
                 <Modal visible={visible} onDismiss={() => setVisible(false)} contentContainerStyle={containerStyle}>
                     {children}
                     <Button mode="contained" onPress={() => setVisible(false)} style={{ marginTop: 10 }}>OK</Button>
                 </Modal>
-            </Portal>
+            </Portal>}
         </View>
     );
 }

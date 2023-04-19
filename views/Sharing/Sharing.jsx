@@ -49,12 +49,6 @@ const Sharing = () => {
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
                         <Text variant="titleMedium">This app has access to your contents to search for and add new friends.</Text>
-                        <Text variant="titleMedium" style={{ fontStyle: "italic", marginTop: 10 }}>What are the risks of sharing your contacts?</Text>
-                        <Text>1. The app can access the information you store about a contact like their email address, birthday and so on. It may be used to send spam or unwanted messages to your friends and family</Text>
-                        <Text style={{ marginTop: 10 }}>2. If a malicious actor gains access to your contacts, they may be able to use that information to steal your identity or carry out phishing attacks on your contacts.</Text>
-
-                        <Text variant="titleMedium" style={{ fontStyle: "italic", marginTop: 10 }}>What can I do?</Text>
-                        <Text>Adding your contact manually without giving contact permission is a safer option. Ask your friend for their username.</Text>
                     </Modal>
                 </Portal>
             </ScrollView>
